@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meridien Dermatology | Dallas, TX</title>
-  <meta name="description" content="Board-certified dermatology in Dallas, TX. Dr. So Yeon Paek — expert care for skin health, skin cancer, and cosmetic dermatology. Same-day appointments available." />
+  <meta name="description" content="Board-certified dermatology in Dallas, TX. Dr. So Yeon Paek — expert care for skin health, skin cancer, hidradenitis suppurativa, and cosmetic dermatology. Same-day appointments." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -22,6 +22,7 @@
       --muted:      #7A8C82;
       --border:     #E2EAE6;
       --card-bg:    #F3F7F5;
+      --hs-bg:      #1C3228;
     }
 
     html { scroll-behavior: smooth; }
@@ -45,20 +46,19 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
-      max-width: 1100px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 2rem;
-      height: 66px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
-
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--dark);
@@ -69,29 +69,29 @@
 
     .nav-links {
       display: flex;
-      gap: 2.25rem;
+      gap: 1.6rem;
       list-style: none;
       align-items: center;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--mid);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 400;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--sage-dark); }
     .nav-links .nav-cta {
       background: var(--sage-dark);
       color: white !important;
-      padding: 0.55rem 1.3rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 2rem;
     }
     .nav-links .nav-cta:hover { background: var(--sage); }
 
-    /* hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -110,7 +110,6 @@
       transition: all 0.3s;
     }
 
-    /* mobile menu */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -120,12 +119,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2.25rem;
+      gap: 1.75rem;
+      overflow-y: auto;
+      padding: 4rem 2rem;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 300;
       color: var(--dark);
       text-decoration: none;
@@ -150,17 +151,15 @@
       display: flex;
       align-items: center;
       background: linear-gradient(140deg, #EBF2EE 0%, #F8F6F1 55%, #EDF4F0 100%);
-      padding: 5rem 2rem 5rem;
+      padding: 5rem 2rem;
       position: relative;
       overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      right: -15vw;
-      top: -15vw;
-      width: 60vw;
-      height: 60vw;
+      right: -15vw; top: -15vw;
+      width: 60vw; height: 60vw;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(122,158,142,0.13) 0%, transparent 65%);
       pointer-events: none;
@@ -168,15 +167,12 @@
     .hero::after {
       content: '';
       position: absolute;
-      left: -10vw;
-      bottom: -10vw;
-      width: 40vw;
-      height: 40vw;
+      left: -10vw; bottom: -10vw;
+      width: 40vw; height: 40vw;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(78,122,104,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
-
     .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; }
 
     .hero-eyebrow {
@@ -193,8 +189,7 @@
     .hero-eyebrow::before {
       content: '';
       display: block;
-      width: 36px;
-      height: 1px;
+      width: 36px; height: 1px;
       background: var(--sage-dark);
     }
 
@@ -242,12 +237,10 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(78,122,104,0.28);
     }
-    .btn-outline {
-      border: 1.5px solid var(--sage-dark);
-      color: var(--sage-dark);
-      background: transparent;
-    }
+    .btn-outline { border: 1.5px solid var(--sage-dark); color: var(--sage-dark); background: transparent; }
     .btn-outline:hover { background: var(--sage-dark); color: white; }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.5); color: white; background: transparent; }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
 
     .hero-stats {
       display: flex;
@@ -264,14 +257,9 @@
       color: var(--dark);
       line-height: 1;
     }
-    .stat-label {
-      font-size: 0.73rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      margin-top: 0.3rem;
-    }
+    .stat-label { font-size: 0.73rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 0.3rem; }
 
-    /* ── SHARED SECTION ── */
+    /* ── SHARED ── */
     section { padding: 6rem 2rem; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
 
@@ -283,7 +271,6 @@
       font-weight: 400;
       margin-bottom: 0.85rem;
     }
-
     h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 3.5vw, 3rem);
@@ -295,26 +282,15 @@
 
     /* ── ABOUT ── */
     .about { background: white; }
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      gap: 5rem;
       align-items: start;
     }
+    .about-text p { color: var(--mid); margin-bottom: 1.2rem; font-size: 0.95rem; }
 
-    .about-text p {
-      color: var(--mid);
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-    }
-
-    .credentials {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
+    .credentials { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.85rem; }
     .credential {
       display: flex;
       align-items: flex-start;
@@ -323,17 +299,9 @@
       color: var(--mid);
       line-height: 1.5;
     }
-    .credential svg {
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--sage-dark);
-    }
+    .credential svg { flex-shrink: 0; margin-top: 1px; color: var(--sage-dark); }
 
-    .about-card {
-      background: var(--card-bg);
-      border-radius: 1.5rem;
-      padding: 2.25rem;
-    }
+    .about-card { background: var(--card-bg); border-radius: 1.5rem; padding: 2.25rem; }
     .about-card h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.7rem;
@@ -341,19 +309,8 @@
       color: var(--dark);
       margin-bottom: 0.2rem;
     }
-    .card-title {
-      font-size: 0.78rem;
-      color: var(--sage-dark);
-      letter-spacing: 0.06em;
-      margin-bottom: 1.25rem;
-      font-weight: 400;
-    }
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--mid);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
+    .card-title { font-size: 0.78rem; color: var(--sage-dark); letter-spacing: 0.06em; margin-bottom: 1.25rem; font-weight: 400; }
+    .card-desc { font-size: 0.875rem; color: var(--mid); margin-bottom: 1.5rem; line-height: 1.7; }
 
     .edu-list { list-style: none; display: flex; flex-direction: column; }
     .edu-list li {
@@ -367,18 +324,36 @@
     .edu-school { font-size: 0.875rem; color: var(--dark); font-weight: 500; }
     .edu-degree  { font-size: 0.8rem; color: var(--muted); }
 
-    .awards-box {
-      margin-top: 1rem;
-      padding: 1.5rem;
-      background: #EBF2EE;
-      border-radius: 1rem;
-    }
+    .awards-box { margin-top: 1rem; padding: 1.5rem; background: #EBF2EE; border-radius: 1rem; }
     .awards-box .section-tag { margin-bottom: 0.65rem; }
     .awards-box p { font-size: 0.85rem; color: var(--mid); line-height: 1.75; }
 
+    /* Media strip */
+    .media-strip {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .media-strip-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 1.25rem; font-weight: 400; }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.875rem;
+    }
+    .media-card {
+      padding: 1.25rem;
+      background: var(--card-bg);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .media-card:hover { border-color: var(--sage-light); }
+    .media-source { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-dark); font-weight: 400; }
+    .media-title { font-size: 0.85rem; color: var(--dark); margin-top: 0.3rem; line-height: 1.45; }
+    .media-date  { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+
     /* ── SERVICES ── */
     .services { background: var(--warm-white); }
-
     .services-header {
       display: flex;
       justify-content: space-between;
@@ -387,13 +362,11 @@
       flex-wrap: wrap;
       gap: 1.5rem;
     }
-
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
-
     .service-card {
       background: white;
       border-radius: 1.25rem;
@@ -406,9 +379,19 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 32px rgba(78,122,104,0.09);
     }
+    .service-card.accent-card {
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+      color: white;
+    }
+    .service-card.accent-card h3,
+    .service-card.accent-card p { color: white; }
+    .service-card.accent-card p { opacity: 0.8; }
+    .service-card.accent-card .service-icon { background: rgba(255,255,255,0.15); color: white; }
+    .service-card.accent-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(78,122,104,0.3); }
+
     .service-icon {
-      width: 46px;
-      height: 46px;
+      width: 46px; height: 46px;
       background: #EBF2EE;
       border-radius: 0.875rem;
       display: flex;
@@ -426,16 +409,180 @@
     }
     .service-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
+    /* ── HS SECTION ── */
+    .hs-section { background: var(--hs-bg); padding: 6rem 2rem; }
+    .hs-inner { max-width: 1100px; margin: 0 auto; }
+    .hs-section .section-tag { color: var(--sage-light); }
+    .hs-section h2 { color: white; }
+
+    .hs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 1rem;
+    }
+    .hs-lead { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2rem; }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.875rem;
+      margin-top: 1.5rem;
+    }
+    .stage-card {
+      padding: 1.25rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+    .stage-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.4rem;
+      font-weight: 400;
+    }
+    .stage-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: white; margin-bottom: 0.4rem; }
+    .stage-desc  { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    .hs-right h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 1.25rem;
+    }
+    .treatment-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .treatment-group { }
+    .tg-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+    .tg-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .tg-list li { font-size: 0.83rem; color: rgba(255,255,255,0.65); padding-left: 1rem; position: relative; }
+    .tg-list li::before { content: '–'; position: absolute; left: 0; color: var(--sage-light); }
+
+    .modes-box {
+      margin-top: 2rem;
+      padding: 1.75rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 1.25rem;
+    }
+    .modes-box-tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 0.5rem; font-weight: 400; }
+    .modes-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    .modes-box p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    /* ── CLINICAL TRIALS ── */
+    .trials-section { background: var(--warm-white); }
+    .trials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .txdrc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .txdrc-badge:hover { border-color: var(--sage-dark); color: var(--sage-dark); }
+    .txdrc-badge svg { color: var(--sage-dark); flex-shrink: 0; }
+
+    .trials-intro { font-size: 0.95rem; color: var(--mid); max-width: 680px; line-height: 1.8; margin-bottom: 2.5rem; }
+
+    .trials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .trial-card {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all 0.22s;
+    }
+    .trial-card:hover {
+      border-color: var(--sage-light);
+      box-shadow: 0 6px 24px rgba(78,122,104,0.08);
+    }
+    .trial-phase {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      font-weight: 400;
+    }
+    .trial-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    .trial-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+    .trial-eligibility {
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+      color: var(--sage-dark);
+      font-weight: 400;
+    }
+
+    .trials-cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.75rem 2rem;
+      background: white;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .trials-cta-bar-left h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+    .trials-cta-bar-left p { font-size: 0.84rem; color: var(--muted); }
+
     /* ── LOCATION ── */
     .location { background: white; }
-
     .location-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: start;
     }
-
     .info-label {
       font-size: 0.68rem;
       letter-spacing: 0.18em;
@@ -453,6 +600,21 @@
     .hours-table td { padding: 0.8rem 0; font-size: 0.875rem; color: var(--mid); }
     .hours-table td:last-child { text-align: right; color: var(--dark); font-weight: 400; }
 
+    .insurance-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .ins-chip {
+      padding: 0.3rem 0.75rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      color: var(--mid);
+    }
+
     .map-wrap {
       border-radius: 1.5rem;
       overflow: hidden;
@@ -462,10 +624,7 @@
     .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
     /* ── CTA ── */
-    .cta-section {
-      background: var(--dark);
-      padding: 6rem 2rem;
-    }
+    .cta-section { background: var(--dark); padding: 6rem 2rem; }
     .cta-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -479,7 +638,6 @@
     .cta-inner .section-tag { color: var(--sage-light); }
 
     .contact-cards { display: flex; flex-direction: column; gap: 0.875rem; }
-
     .contact-card {
       display: flex;
       align-items: center;
@@ -498,8 +656,7 @@
       transform: translateX(4px);
     }
     .contact-card-icon {
-      width: 42px;
-      height: 42px;
+      width: 42px; height: 42px;
       background: var(--sage-dark);
       border-radius: 0.6rem;
       display: flex;
@@ -512,10 +669,7 @@
     .cc-value { font-size: 0.95rem; color: white; margin-top: 0.1rem; }
 
     /* ── FOOTER ── */
-    footer {
-      background: #111A16;
-      padding: 2.25rem 2rem;
-    }
+    footer { background: #111A16; padding: 2.25rem 2rem; }
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -536,35 +690,45 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: rgba(255,255,255,0.65); }
-
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
       .about-grid,
+      .hs-grid,
       .location-grid,
       .cta-inner {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stage-grid { grid-template-columns: 1fr; }
+      .treatment-cols { grid-template-columns: 1fr; }
+      .trials-grid { grid-template-columns: 1fr; }
+      .media-grid { grid-template-columns: 1fr; }
 
       section { padding: 4rem 1.5rem; }
+      .hs-section { padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       .hero { padding: 3.5rem 1.5rem; min-height: auto; }
       .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; }
       .services-header { flex-direction: column; align-items: flex-start; }
+      .trials-header { flex-direction: column; align-items: flex-start; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .map-wrap { height: 280px; }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 540px) {
       .btn-row { flex-direction: column; }
       .btn { justify-content: center; }
       .services-grid { grid-template-columns: 1fr; }
       .hero-stats { flex-wrap: wrap; gap: 1.5rem 2.5rem; }
+      .trials-cta-bar { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -577,6 +741,8 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#hs">HS &amp; MODES</a></li>
+      <li><a href="#trials">Clinical Trials</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="tel:9722007446" class="nav-cta">(972) 200-7446</a></li>
@@ -592,9 +758,11 @@
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
   <a href="#about"    onclick="closeMobileMenu()">About</a>
   <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#hs"       onclick="closeMobileMenu()">HS &amp; MODES</a>
+  <a href="#trials"   onclick="closeMobileMenu()">Clinical Trials</a>
   <a href="#location" onclick="closeMobileMenu()">Location</a>
   <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
-  <a href="tel:9722007446" style="color:var(--sage-dark); font-size:1.6rem;">(972) 200-7446</a>
+  <a href="tel:9722007446" style="color:var(--sage-dark); font-size:1.6rem;" onclick="closeMobileMenu()">(972) 200-7446</a>
 </div>
 
 <!-- HERO -->
@@ -626,7 +794,7 @@
       </div>
       <div>
         <div class="stat-num">Yale</div>
-        <div class="stat-label">& UT Southwestern</div>
+        <div class="stat-label">&amp; UT Southwestern</div>
       </div>
       <div>
         <div class="stat-num">Same&#8209;day</div>
@@ -641,7 +809,6 @@
   <div class="section-inner">
     <div class="about-grid">
 
-      <!-- left: text -->
       <div class="about-text">
         <div class="section-tag">About the Practice</div>
         <h2>Committed to the health &amp; beauty of your skin</h2>
@@ -653,7 +820,8 @@
         <p>
           Led by Dr. So Yeon Paek, our practice serves Dallas and the surrounding areas
           with a focus on quality, compassion, and clinical excellence — from routine
-          dermatology to complex medical conditions and cosmetic care.
+          dermatology to complex medical conditions including hidradenitis suppurativa,
+          psoriasis, and skin cancer.
         </p>
         <div class="credentials">
           <div class="credential">
@@ -684,18 +852,17 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            Principal Investigator, Clinical Trials
+            Principal Investigator, Texas Dermatology Research Center (TXDRC)
           </div>
         </div>
       </div>
 
-      <!-- right: card -->
       <div>
         <div class="about-card">
           <h3>Dr. So Yeon Paek</h3>
           <div class="card-title">MD, FAAD &nbsp;·&nbsp; Board-Certified Dermatologist</div>
           <p class="card-desc">
-            Specialist in psoriasis, atopic dermatitis, hidradenitis suppurativa,
+            Specialist in hidradenitis suppurativa, psoriasis, atopic dermatitis,
             skin cancer, dermatologic surgery, biologic therapy, and cosmetic dermatology.
           </p>
           <ul class="edu-list">
@@ -727,6 +894,32 @@
       </div>
 
     </div>
+
+    <!-- Media strip -->
+    <div class="media-strip">
+      <div class="media-strip-label">Media &amp; Publications</div>
+      <div class="media-grid">
+        <div class="media-card">
+          <div class="media-source">WFAA — Television</div>
+          <div class="media-title">Does plucking your gray hair bring more?</div>
+        </div>
+        <div class="media-card">
+          <div class="media-source">WFAA — Television</div>
+          <div class="media-title">Treating dry skin in the winter</div>
+        </div>
+        <div class="media-card">
+          <div class="media-source">Dialogues in Dermatology</div>
+          <div class="media-title">New and Emerging Therapies in Hidradenitis Suppurativa</div>
+          <div class="media-date">June 2023</div>
+        </div>
+        <div class="media-card">
+          <div class="media-source">National Psoriasis Foundation</div>
+          <div class="media-title">Look Beyond Psoriasis Skin: The Impact of Inflammation</div>
+          <div class="media-date">January 2023</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -749,7 +942,19 @@
           </svg>
         </div>
         <h3>General Dermatology</h3>
-        <p>Routine skin exams, rashes, infections, moles, warts, and comprehensive skin health for patients of all ages.</p>
+        <p>Acne, eczema, rosacea, psoriasis, vitiligo, hair loss, warts, fungal infections, and comprehensive routine skin care for all ages.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3>Pediatric Dermatology</h3>
+        <p>Specialized skin care for children and adolescents, including eczema, warts, molluscum, birthmarks, and acne, with a gentle child-friendly approach.</p>
       </div>
 
       <div class="service-card">
@@ -759,7 +964,7 @@
           </svg>
         </div>
         <h3>Skin Cancer</h3>
-        <p>Expert detection, diagnosis, and treatment of melanoma, basal cell carcinoma, and squamous cell carcinoma.</p>
+        <p>Detection and treatment of melanoma, basal cell, and squamous cell carcinoma through thorough full-body skin exams and expert surgical care.</p>
       </div>
 
       <div class="service-card">
@@ -769,20 +974,8 @@
             <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10A15.3 15.3 0 018 12a15.3 15.3 0 014-10z"/>
           </svg>
         </div>
-        <h3>Psoriasis &amp; Eczema</h3>
-        <p>Evidence-based treatment for chronic inflammatory conditions including psoriasis and atopic dermatitis.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path d="M8.56 2.9A7 7 0 0119 9v1.5c0 3-1 5.5-3 7M7 14s-.5-3 1.5-5.5"/>
-            <path d="M12 22s-4-2-4-8v-2c0-2.2.8-4.3 2.3-5.9"/>
-            <circle cx="12" cy="7" r="1"/>
-          </svg>
-        </div>
-        <h3>Hidradenitis Suppurativa</h3>
-        <p>Specialized, compassionate management of HS including biologic therapy and surgical options.</p>
+        <h3>Psoriasis &amp; Atopic Dermatitis</h3>
+        <p>Evidence-based treatment for chronic inflammatory skin conditions, including topical therapies, phototherapy, and advanced biologics.</p>
       </div>
 
       <div class="service-card">
@@ -792,7 +985,7 @@
           </svg>
         </div>
         <h3>Biologic Therapy</h3>
-        <p>Advanced injectable biologics for moderate-to-severe inflammatory skin diseases, administered with expert oversight.</p>
+        <p>Advanced injectable biologic medications for moderate-to-severe psoriasis, atopic dermatitis, and hidradenitis suppurativa, with expert monitoring.</p>
       </div>
 
       <div class="service-card">
@@ -802,8 +995,19 @@
             <path d="M4 20h16"/>
           </svg>
         </div>
-        <h3>Dermatologic Surgery</h3>
-        <p>Surgical excisions, lesion removal, and dermatologic procedures performed with precision and care.</p>
+        <h3>Surgical &amp; Procedural</h3>
+        <p>Cryotherapy, cyst and lesion excisions, electrodesiccation &amp; curettage, shave and punch biopsies, and skin cancer surgery.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <h3>Light-Based Treatments</h3>
+        <p>Photodynamic therapy (PDT) for actinic keratoses and pre-cancerous lesions; laser hair removal for cosmetic and HS management.</p>
       </div>
 
       <div class="service-card">
@@ -813,10 +1017,10 @@
           </svg>
         </div>
         <h3>Cosmetic Dermatology</h3>
-        <p>Aesthetic treatments to enhance your skin's appearance — anti-aging, rejuvenation, and skin tone procedures.</p>
+        <p>Botox®, dermal fillers (Juvéderm®, Restylane®), VI Peel &amp; PCA chemical peels, and microneedling for collagen and scar treatment.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card accent-card">
         <div class="service-icon">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
@@ -824,10 +1028,159 @@
             <path d="M9 12h6M9 16h4"/>
           </svg>
         </div>
-        <h3>Clinical Trials</h3>
-        <p>Access to cutting-edge treatments through clinical research led by Dr. Paek as Principal Investigator.</p>
+        <h3>Hidradenitis Suppurativa</h3>
+        <p>Comprehensive, specialized HS care including medical management, biologic therapy, and the MODES surgical procedure.</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- HS & MODES -->
+<section class="hs-section" id="hs">
+  <div class="hs-inner">
+    <div class="section-tag">Specialized Care</div>
+    <h2>Hidradenitis Suppurativa &amp; MODES</h2>
+
+    <div class="hs-grid">
+
+      <div>
+        <p class="hs-lead">
+          Hidradenitis suppurativa (HS) is a chronic, debilitating inflammatory skin condition
+          that affects hair follicles in body folds — underarms, groin, thighs, and buttocks.
+          It causes painful nodules, abscesses, and tunnels under the skin that can lead to
+          significant scarring. Dr. Paek is one of the leading HS specialists in the Dallas area.
+        </p>
+        <div class="section-tag" style="color:var(--sage-light); margin-bottom:0.75rem;">Disease Stages (Hurley Classification)</div>
+        <div class="stage-grid">
+          <div class="stage-card">
+            <div class="stage-label">Stage I</div>
+            <div class="stage-title">Mild</div>
+            <div class="stage-desc">Single or multiple abscesses without sinus tracts or scarring.</div>
+          </div>
+          <div class="stage-card">
+            <div class="stage-label">Stage II</div>
+            <div class="stage-title">Moderate</div>
+            <div class="stage-desc">Recurrent abscesses with sinus tracts and scarring; lesions separated by normal skin.</div>
+          </div>
+          <div class="stage-card">
+            <div class="stage-label">Stage III</div>
+            <div class="stage-title">Severe</div>
+            <div class="stage-desc">Diffuse involvement with interconnected tunnels and extensive scarring.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hs-right">
+        <h3>Treatment Approach</h3>
+        <div class="treatment-cols">
+          <div class="treatment-group">
+            <div class="tg-label">Medical</div>
+            <ul class="tg-list">
+              <li>Benzoyl peroxide &amp; CLn wash</li>
+              <li>Topical clindamycin</li>
+              <li>Oral antibiotics</li>
+              <li>Hormonal therapy</li>
+              <li>Metformin, acitretin</li>
+            </ul>
+          </div>
+          <div class="treatment-group">
+            <div class="tg-label">Advanced</div>
+            <ul class="tg-list">
+              <li>Adalimumab (Humira®)</li>
+              <li>Secukinumab</li>
+              <li>Bimekizumab</li>
+              <li>Laser therapy</li>
+              <li>Intralesional steroids</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modes-box">
+          <div class="modes-box-tag">Surgical Program</div>
+          <h4>MODES — Modified Deroofing</h4>
+          <p>
+            MODES is a specialized surgical procedure for HS in which the roof of sinus tracts
+            is carefully removed while healthy surrounding skin is preserved. Compared to wide
+            excision, MODES offers faster healing, better cosmetic outcomes, and reduced
+            recurrence. Dr. Paek performs MODES as part of Meridien's comprehensive HS program.
+          </p>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <a href="tel:9722007446" class="btn btn-outline-light">Schedule an HS Consultation</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL TRIALS -->
+<section class="trials-section" id="trials">
+  <div class="section-inner">
+    <div class="trials-header">
+      <div>
+        <div class="section-tag">Research</div>
+        <h2>Clinical Trials</h2>
+      </div>
+      <a href="https://www.txdrc.com" target="_blank" rel="noopener noreferrer" class="txdrc-badge">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+        Visit TXDRC.com
+      </a>
+    </div>
+
+    <p class="trials-intro">
+      Meridien Dermatology is affiliated with the <strong>Texas Dermatology Research Center (TXDRC)</strong>,
+      a clinical research center located at our same address. Dr. Paek serves as Principal Investigator
+      for multiple IRB-approved clinical trials, giving patients access to investigational treatments
+      before FDA approval — at no cost to participants.
+    </p>
+
+    <div class="trials-grid">
+      <div class="trial-card">
+        <div class="trial-phase">Phase 3 · Topical</div>
+        <h4>Topical Treatment Study</h4>
+        <p>Randomized, double-blind, controlled study evaluating the efficacy and safety of a topical cream for hidradenitis suppurativa.</p>
+        <div class="trial-eligibility">Ages 12+ &nbsp;·&nbsp; Mild to Moderate HS</div>
+      </div>
+      <div class="trial-card">
+        <div class="trial-phase">Phase 3 · Oral</div>
+        <h4>Oral Medication Study</h4>
+        <p>Phase 3 trial of an oral agent for moderate-to-severe HS, including a long-term extension component for continued monitoring.</p>
+        <div class="trial-eligibility">Adults &nbsp;·&nbsp; Moderate to Severe HS</div>
+      </div>
+      <div class="trial-card">
+        <div class="trial-phase">Phase 3 · Injectable</div>
+        <h4>Subcutaneous Injection Study</h4>
+        <p>Evaluating the safety and efficacy of a subcutaneous injectable agent for adults with moderate-to-severe hidradenitis suppurativa.</p>
+        <div class="trial-eligibility">Adults &nbsp;·&nbsp; Moderate to Severe HS</div>
+      </div>
+      <div class="trial-card">
+        <div class="trial-phase">Phase 3 · Adolescent</div>
+        <h4>Pediatric &amp; Adolescent Study</h4>
+        <p>Open-label study evaluating pharmacokinetics and safety of a subcutaneous injection in adolescents with hidradenitis suppurativa.</p>
+        <div class="trial-eligibility">Ages 12–17 &nbsp;·&nbsp; HS</div>
+      </div>
+    </div>
+
+    <div class="trials-cta-bar">
+      <div class="trials-cta-bar-left">
+        <h4>Interested in participating?</h4>
+        <p>Contact our research team — all studies are IRB-approved and participation is at no cost to you.</p>
+      </div>
+      <div style="display:flex; gap:0.875rem; flex-wrap:wrap; align-items:center;">
+        <a href="mailto:studies@txdrc.com" class="btn btn-primary" style="font-size:0.78rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          studies@txdrc.com
+        </a>
+        <a href="tel:97220074464" class="btn btn-outline">(972) 200-7446 ext.&nbsp;4</a>
+      </div>
     </div>
   </div>
 </section>
@@ -843,12 +1196,12 @@
 
         <div class="info-block">
           <div class="info-label">Address</div>
-          <p>Baylor Medical Pavilion<br>3900 Junius Street, Suite 420<br>Dallas, TX 75246</p>
+          <p>Baylor Scott &amp; White Medical Pavilion<br>3900 Junius Street, Suite 420<br>Dallas, TX 75246</p>
         </div>
 
         <div class="info-block">
-          <div class="info-label">Parking</div>
-          <p>Covered garage (first hour free), valet, and street parking at the Medical Pavilion.</p>
+          <div class="info-label">Directions &amp; Parking</div>
+          <p>Our clinic is located on the 4th floor of the Baylor Scott &amp; White Medical Pavilion, on the corner of Junius and Washington St. Self-parking is available in the covered garage attached to the Medical Pavilion (entrance on Junius; first hour free). Valet and street parking are also available.</p>
         </div>
 
         <div class="info-block">
@@ -860,6 +1213,25 @@
               <tr><td>Saturday – Sunday</td><td>Closed</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Insurance Accepted</div>
+          <p style="margin-bottom:0.75rem; font-size:0.85rem;">We accept most major commercial plans and Medicare. Contact us to verify your specific coverage.</p>
+          <div class="insurance-chips">
+            <span class="ins-chip">Aetna</span>
+            <span class="ins-chip">Cigna</span>
+            <span class="ins-chip">United HealthCare</span>
+            <span class="ins-chip">BCBS Texas</span>
+            <span class="ins-chip">Baylor Scott &amp; White</span>
+            <span class="ins-chip">Humana</span>
+            <span class="ins-chip">Medicare</span>
+            <span class="ins-chip">Tricare / Triwest</span>
+            <span class="ins-chip">First Health</span>
+            <span class="ins-chip">Healthcare Highways</span>
+            <span class="ins-chip">Sana PPO</span>
+            <span class="ins-chip">Self-Pay</span>
+          </div>
         </div>
       </div>
 
@@ -899,7 +1271,7 @@
         </div>
       </a>
 
-      <a href="https://www.meridienderm.com/patient-portal" target="_blank" rel="noopener noreferrer" class="contact-card">
+      <a href="https://meridienderm.ema.md" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="contact-card-icon">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -912,7 +1284,7 @@
         </div>
       </a>
 
-      <a href="https://www.meridienderm.com/pay-your-bill" target="_blank" rel="noopener noreferrer" class="contact-card">
+      <a href="https://meridienderm.ema.md/ema/pay/onlinepayments" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="contact-card-icon">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -925,15 +1297,17 @@
         </div>
       </a>
 
-      <a href="https://www.meridienderm.com/insurances-accepted" target="_blank" rel="noopener noreferrer" class="contact-card">
+      <a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="contact-card-icon">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
         </div>
         <div>
-          <div class="cc-label">Insurance</div>
-          <div class="cc-value">View Accepted Plans</div>
+          <div class="cc-label">Instagram</div>
+          <div class="cc-value">@meridien.derm</div>
         </div>
       </a>
 
@@ -948,9 +1322,11 @@
     <ul class="footer-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#hs">HS &amp; MODES</a></li>
+      <li><a href="#trials">Clinical Trials</a></li>
       <li><a href="#location">Location</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://www.meridienderm.com/patient-portal" target="_blank" rel="noopener">Patient Portal</a></li>
+      <li><a href="https://meridienderm.ema.md" target="_blank" rel="noopener">Patient Portal</a></li>
+      <li><a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener">Instagram</a></li>
     </ul>
     <span class="footer-copy">&copy; 2025 Meridien Dermatology &nbsp;·&nbsp; Dallas, TX</span>
   </div>
