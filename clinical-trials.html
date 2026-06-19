@@ -20,13 +20,13 @@
       --sage:       #2D8655;
       --sage-light: #6BBF8E;
       --sage-dark:  #1A5C38;
-      --cream:      #FFFFFF;
-      --warm-white: #F7F7F7;
+      --cream:      #FAF8F4;
+      --warm-white: #F5F0E8;
       --dark:       #111111;
       --mid:        #444444;
       --muted:      #777777;
       --border:     #E0E0E0;
-      --card-bg:    #F0F0F0;
+      --card-bg:    #EDE8DC;
     }
 
     html { scroll-behavior: smooth; }
@@ -46,7 +46,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(250, 248, 244, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -161,7 +161,7 @@
 
     /* ── PAGE HEADER ── */
     .page-header {
-      background: linear-gradient(140deg, #F2F2F2 0%, #FFFFFF 55%, #F5F5F5 100%);
+      background: linear-gradient(140deg, #F5F0E8 0%, #FAF8F4 55%, #F0EBE2 100%);
       padding: 4.5rem 2rem;
     }
     .page-header-inner { max-width: 1100px; margin: 0 auto; }
@@ -220,7 +220,7 @@
     .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
 
     /* ── TXDRC INTRO ── */
-    .txdrc-section { background: white; }
+    .txdrc-section { background: var(--cream); }
     .txdrc-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: start; }
     .txdrc-lead { font-size: 1rem; color: var(--mid); line-height: 1.85; margin-bottom: 1.75rem; }
     .txdrc-features { display: flex; flex-direction: column; gap: 0.875rem; margin-top: 0.5rem; }
@@ -307,7 +307,7 @@
     .status-enrolling::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); }
 
     /* ── HOW TO PARTICIPATE ── */
-    .participate-section { background: white; }
+    .participate-section { background: var(--cream); }
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 0.5rem; }
     .pstep-card {
       padding: 2rem;

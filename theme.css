@@ -24,6 +24,11 @@
 [data-theme="dark"] .icon-sun  { display: block; }
 [data-theme="dark"] .icon-moon { display: none;  }
 
+/* ── COLOR SCHEME HINTS ── */
+/* Tells browser we manage colors ourselves; prevents UA forced inversion */
+:root            { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
 /* ── DARK MODE CSS VARIABLES ── */
 /*
    Strategy: flip --dark to a light color so all "color: var(--dark)" text
@@ -43,6 +48,13 @@
   --border:     #2A2A2A;
   --card-bg:    #1A1A1A;
   --hs-bg:      #050D07;
+}
+
+/* ── DARK MODE BODY SAFETY NET ── */
+/* Explicit values ensure readability even if variable resolution fails */
+[data-theme="dark"] body {
+  color: #F0F0F0;
+  background: #0A0A0A;
 }
 
 /* ── RE-DARKEN PANELS THAT USE var(--dark) AS A BACKGROUND ── */
