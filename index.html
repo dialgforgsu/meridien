@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meridien Dermatology | Dallas, TX</title>
   <meta name="description" content="Board-certified dermatology in Dallas, TX. Dr. So Yeon Paek — expert care for skin health, skin cancer, hidradenitis suppurativa, and cosmetic dermatology. Same-day appointments." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src https://images.squarespace-cdn.com https://maps.google.com; frame-src https://maps.google.com; script-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; object-src 'none';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -179,7 +182,7 @@
       width: 100%;
       position: relative;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 0.85fr 1.15fr;
       gap: 4rem;
       align-items: center;
     }
@@ -187,9 +190,8 @@
     .hero-photo {
       border-radius: 1.75rem;
       overflow: hidden;
-      aspect-ratio: 4 / 3;
+      height: 580px;
       box-shadow: 0 24px 64px rgba(30, 40, 35, 0.18);
-      flex-shrink: 0;
     }
     .hero-photo img {
       width: 100%;
@@ -199,9 +201,7 @@
     }
     .doctor-photo {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      object-position: top center;
+      height: auto;
       border-radius: 1rem;
       margin-bottom: 1.5rem;
       display: block;
@@ -274,22 +274,53 @@
     .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.5); color: white; background: transparent; }
     .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
 
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4.5rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
+    /* ── STATS BANNER ── */
+    .stats-banner {
+      background: var(--dark);
+      padding: 0.85rem 2rem;
+      position: relative;
+      z-index: 99;
     }
-    .stat-num {
+    .stats-banner-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 2.75rem;
+    }
+    .banner-stat:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .banner-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: 1.3rem;
       font-weight: 400;
-      color: var(--dark);
+      color: white;
       line-height: 1;
     }
-    .stat-label { font-size: 0.73rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 0.3rem; }
+    .banner-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+    }
+    /* ── STACKED BUTTON ── */
+    .btn-stacked {
+      flex-direction: column;
+      gap: 0.1rem;
+      padding: 0.75rem 1.75rem;
+      align-items: center;
+      white-space: normal;
+      text-align: center;
+    }
+    .btn-main { font-size: 0.78rem; letter-spacing: 0.1em; line-height: 1.2; }
+    .btn-sub  { font-size: 0.6rem; letter-spacing: 0.1em; opacity: 0.6; font-weight: 300; }
 
     /* ── SHARED ── */
     section { padding: 6rem 2rem; }
@@ -749,8 +780,10 @@
       .cta-section { padding: 4rem 1.5rem; }
       .hero { padding: 3.5rem 1.5rem; min-height: auto; }
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-photo { aspect-ratio: 16 / 9; }
-      .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; }
+      .hero-photo { height: auto; aspect-ratio: 16 / 9; }
+      .stats-banner-inner { gap: 0; flex-wrap: wrap; justify-content: center; }
+      .banner-stat { padding: 0.5rem 1.5rem; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; }
+      .banner-stat:last-child { border-bottom: none; }
       .services-header { flex-direction: column; align-items: flex-start; }
       .trials-header { flex-direction: column; align-items: flex-start; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -761,7 +794,6 @@
       .btn-row { flex-direction: column; }
       .btn { justify-content: center; }
       .services-grid { grid-template-columns: 1fr; }
-      .hero-stats { flex-wrap: wrap; gap: 1.5rem 2.5rem; }
       .trials-cta-bar { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -778,6 +810,7 @@
       <li><a href="#hs">HS &amp; MODES</a></li>
       <li><a href="#trials">Clinical Trials</a></li>
       <li><a href="#location">Location</a></li>
+      <li><a href="for-patients.html">For Patients</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="tel:9722007446" class="nav-cta">(972) 200-7446</a></li>
     </ul>
@@ -787,6 +820,24 @@
   </div>
 </nav>
 
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="stats-banner-inner">
+    <div class="banner-stat">
+      <span class="banner-num">14+</span>
+      <span class="banner-label">Years of Experience</span>
+    </div>
+    <div class="banner-stat">
+      <span class="banner-num">FAAD</span>
+      <span class="banner-label">Board Certified</span>
+    </div>
+    <div class="banner-stat">
+      <span class="banner-num">Yale</span>
+      <span class="banner-label">&amp; UT Southwestern</span>
+    </div>
+  </div>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
@@ -794,8 +845,9 @@
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#hs"       onclick="closeMobileMenu()">HS &amp; MODES</a>
   <a href="#trials"   onclick="closeMobileMenu()">Clinical Trials</a>
-  <a href="#location" onclick="closeMobileMenu()">Location</a>
-  <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
+  <a href="#location"        onclick="closeMobileMenu()">Location</a>
+  <a href="for-patients.html" onclick="closeMobileMenu()">For Patients</a>
+  <a href="#contact"         onclick="closeMobileMenu()">Contact</a>
   <a href="tel:9722007446" style="color:var(--sage-dark); font-size:1.6rem;" onclick="closeMobileMenu()">(972) 200-7446</a>
 </div>
 
@@ -816,25 +868,10 @@
           </svg>
           Call Now
         </a>
-        <a href="#contact" class="btn btn-outline">Request Appointment</a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">14+</div>
-          <div class="stat-label">Years of Experience</div>
-        </div>
-        <div>
-          <div class="stat-num">FAAD</div>
-          <div class="stat-label">Board Certified</div>
-        </div>
-        <div>
-          <div class="stat-num">Yale</div>
-          <div class="stat-label">&amp; UT Southwestern</div>
-        </div>
-        <div>
-          <div class="stat-num">Same&#8209;day</div>
-          <div class="stat-label">Appointments Available</div>
-        </div>
+        <a href="#contact" class="btn btn-outline btn-stacked">
+          <span class="btn-main">Request Appointment</span>
+          <span class="btn-sub">Same Day Available</span>
+        </a>
       </div>
     </div>
     <div class="hero-photo">
@@ -1228,7 +1265,7 @@
           </svg>
           studies@txdrc.com
         </a>
-        <a href="tel:97220074464" class="btn btn-outline">(972) 200-7446 ext.&nbsp;4</a>
+        <a href="tel:9722007446" class="btn btn-outline">(972) 200-7446 ext.&nbsp;4</a>
       </div>
     </div>
   </div>
@@ -1374,8 +1411,9 @@
       <li><a href="#hs">HS &amp; MODES</a></li>
       <li><a href="#trials">Clinical Trials</a></li>
       <li><a href="#location">Location</a></li>
-      <li><a href="https://meridienderm.ema.md" target="_blank" rel="noopener">Patient Portal</a></li>
-      <li><a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="for-patients.html">For Patients</a></li>
+      <li><a href="https://meridienderm.ema.md" target="_blank" rel="noopener noreferrer">Patient Portal</a></li>
+      <li><a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
     </ul>
     <span class="footer-copy">&copy; 2025 Meridien Dermatology &nbsp;·&nbsp; Dallas, TX</span>
   </div>
