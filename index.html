@@ -173,7 +173,39 @@
       background: radial-gradient(circle, rgba(78,122,104,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-text { }
+    .hero-photo {
+      border-radius: 1.75rem;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 24px 64px rgba(30, 40, 35, 0.18);
+      flex-shrink: 0;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .doctor-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
 
     .hero-eyebrow {
       display: flex;
@@ -716,6 +748,8 @@
       .hs-section { padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       .hero { padding: 3.5rem 1.5rem; min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo { aspect-ratio: 16 / 9; }
       .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; }
       .services-header { flex-direction: column; align-items: flex-start; }
       .trials-header { flex-direction: column; align-items: flex-start; }
@@ -768,38 +802,47 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Center for Healing</div>
-    <h1>Expert care for <em>healthy skin,</em><br>in Dallas</h1>
-    <p class="hero-sub">
-      Board-certified dermatology with Dr. So Yeon Paek — personalized care for
-      medical, surgical, and cosmetic skin concerns. Same-day appointments available.
-    </p>
-    <div class="btn-row">
-      <a href="tel:9722007446" class="btn btn-primary">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.82 12 19.79 19.79 0 01.77 3.38 2 2 0 012.76 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.74a16 16 0 006.35 6.35l1.1-1.1a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-        </svg>
-        Call Now
-      </a>
-      <a href="#contact" class="btn btn-outline">Request Appointment</a>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Center for Healing</div>
+      <h1>Expert care for <em>healthy skin,</em><br>in Dallas</h1>
+      <p class="hero-sub">
+        Board-certified dermatology with Dr. So Yeon Paek — personalized care for
+        medical, surgical, and cosmetic skin concerns. Same-day appointments available.
+      </p>
+      <div class="btn-row">
+        <a href="tel:9722007446" class="btn btn-primary">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.82 12 19.79 19.79 0 01.77 3.38 2 2 0 012.76 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.74a16 16 0 006.35 6.35l1.1-1.1a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          Call Now
+        </a>
+        <a href="#contact" class="btn btn-outline">Request Appointment</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">FAAD</div>
+          <div class="stat-label">Board Certified</div>
+        </div>
+        <div>
+          <div class="stat-num">Yale</div>
+          <div class="stat-label">&amp; UT Southwestern</div>
+        </div>
+        <div>
+          <div class="stat-num">Same&#8209;day</div>
+          <div class="stat-label">Appointments Available</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">14+</div>
-        <div class="stat-label">Years of Experience</div>
-      </div>
-      <div>
-        <div class="stat-num">FAAD</div>
-        <div class="stat-label">Board Certified</div>
-      </div>
-      <div>
-        <div class="stat-num">Yale</div>
-        <div class="stat-label">&amp; UT Southwestern</div>
-      </div>
-      <div>
-        <div class="stat-num">Same&#8209;day</div>
-        <div class="stat-label">Appointments Available</div>
-      </div>
+    <div class="hero-photo">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/67e029ddb6510d5ac7001521/851cafea-db43-481e-bd01-3a2fc46f4bec/thumbnail_IMG_0631.jpg"
+        alt="Meridien Dermatology waiting room — Dallas, TX"
+        loading="eager"
+      />
     </div>
   </div>
 </section>
@@ -859,6 +902,12 @@
 
       <div>
         <div class="about-card">
+          <img
+            class="doctor-photo"
+            src="https://images.squarespace-cdn.com/content/v1/67e029ddb6510d5ac7001521/3a3a4320-6fcd-46a1-83d5-cb7d2ba1b229/Paek_So%2BYeon%2Bheadshot%2B2020.jpg"
+            alt="Dr. So Yeon Paek, MD, FAAD — Meridien Dermatology"
+            loading="lazy"
+          />
           <h3>Dr. So Yeon Paek</h3>
           <div class="card-title">MD, FAAD &nbsp;·&nbsp; Board-Certified Dermatologist</div>
           <p class="card-desc">
