@@ -17,16 +17,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --sage:       #7A9E8E;
-      --sage-light: #A8C4B8;
-      --sage-dark:  #4E7A68;
-      --cream:      #FDFCF9;
-      --warm-white: #F8F6F1;
-      --dark:       #1E2823;
-      --mid:        #4A5C52;
-      --muted:      #7A8C82;
-      --border:     #E2EAE6;
-      --card-bg:    #F3F7F5;
+      --sage:       #2D8655;
+      --sage-light: #6BBF8E;
+      --sage-dark:  #1A5C38;
+      --cream:      #FFFFFF;
+      --warm-white: #F7F7F7;
+      --dark:       #111111;
+      --mid:        #444444;
+      --muted:      #777777;
+      --border:     #E0E0E0;
+      --card-bg:    #F0F0F0;
     }
 
     html { scroll-behavior: smooth; }
@@ -46,7 +46,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(253, 252, 249, 0.96);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -99,7 +99,7 @@
       padding: 0.4rem;
       list-style: none;
       min-width: 215px;
-      box-shadow: 0 12px 40px rgba(30,40,35,0.13);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.18s, visibility 0.18s, transform 0.18s;
@@ -161,7 +161,7 @@
 
     /* ── PAGE HEADER ── */
     .page-header {
-      background: linear-gradient(140deg, #EBF2EE 0%, #F8F6F1 55%, #EDF4F0 100%);
+      background: linear-gradient(140deg, #F2F2F2 0%, #FFFFFF 55%, #F5F5F5 100%);
       padding: 4.5rem 2rem;
     }
     .page-header-inner { max-width: 1100px; margin: 0 auto; }
@@ -213,7 +213,7 @@
       white-space: nowrap;
     }
     .btn-primary { background: var(--sage-dark); color: white; }
-    .btn-primary:hover { background: var(--sage); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(78,122,104,0.28); }
+    .btn-primary:hover { background: var(--sage); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,92,56,0.28); }
     .btn-outline { border: 1.5px solid var(--sage-dark); color: var(--sage-dark); background: transparent; }
     .btn-outline:hover { background: var(--sage-dark); color: white; }
     .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.5); color: white; background: transparent; }
@@ -277,7 +277,7 @@
       align-items: start;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .trial-card:hover { border-color: var(--sage-dark); box-shadow: 0 4px 24px rgba(78,122,104,0.1); }
+    .trial-card:hover { border-color: var(--sage-dark); box-shadow: 0 4px 24px rgba(26,92,56,0.1); }
     .trial-tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-dark); font-weight: 400; margin-bottom: 0.5rem; }
     .trial-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
     .trial-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.75; }
@@ -303,7 +303,7 @@
       font-weight: 400;
       flex-shrink: 0;
     }
-    .status-enrolling { background: #EBF2EE; color: var(--sage-dark); }
+    .status-enrolling { background: #E8F5EE; color: var(--sage-dark); }
     .status-enrolling::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); }
 
     /* ── HOW TO PARTICIPATE ── */
@@ -360,7 +360,7 @@
     .cc-value { font-size: 0.9rem; color: rgba(255,255,255,0.82); }
 
     /* ── FOOTER ── */
-    footer { background: #111A16; padding: 2.25rem 2rem; }
+    footer { background: #0A0A0A; padding: 2.25rem 2rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
     footer .logo { color: rgba(255,255,255,0.65); font-size: 1.1rem; }
     footer .logo span { color: var(--sage-light); }

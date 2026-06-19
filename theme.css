@@ -29,51 +29,55 @@
    Strategy: flip --dark to a light color so all "color: var(--dark)" text
    becomes light. Then explicitly re-darken the sections that use
    "background: var(--dark)" as a dark panel (stats banner, CTA, callout).
+   Forest green accent colors are brightened for dark-background visibility.
 */
 [data-theme="dark"] {
-  --cream:      #111A14;
-  --warm-white: #161F18;
-  --dark:       #D8E8E0;   /* flipped light — used for text */
-  --mid:        #8EB4A2;
-  --muted:      #6A9282;
-  --border:     #253530;
-  --card-bg:    #1A251E;
-  --hs-bg:      #0B1810;
+  --sage:       #3DAA6A;   /* brightened forest for dark bg */
+  --sage-light: #7FCC9A;   /* light forest for text on dark */
+  --sage-dark:  #2D8655;   /* forest primary on dark */
+  --cream:      #0A0A0A;
+  --warm-white: #141414;
+  --dark:       #F0F0F0;   /* flipped light — used for text */
+  --mid:        #AAAAAA;
+  --muted:      #777777;
+  --border:     #2A2A2A;
+  --card-bg:    #1A1A1A;
+  --hs-bg:      #050D07;
 }
 
 /* ── RE-DARKEN PANELS THAT USE var(--dark) AS A BACKGROUND ── */
 [data-theme="dark"] .stats-banner,
 [data-theme="dark"] .cta-section {
-  background: #131F16;
+  background: #0A0A0A;
 }
 [data-theme="dark"] .modes-callout {
-  background: #0B1810;
+  background: #050D07;
 }
 [data-theme="dark"] footer {
-  background: #060E08;
+  background: #050505;
 }
 
 /* ── NAV & MENUS ── */
 [data-theme="dark"] nav {
-  background: rgba(17, 26, 20, 0.96);
+  background: rgba(10, 10, 10, 0.96);
 }
 [data-theme="dark"] .dropdown-menu {
-  background: #1A251E;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  background: #1A1A1A;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
 }
 [data-theme="dark"] .dropdown-menu li a:hover {
-  background: #253530 !important;
+  background: #2A2A2A !important;
 }
 [data-theme="dark"] .mobile-menu {
-  background: #111A14;
+  background: #0A0A0A;
 }
 
 /* ── HERO & PAGE HEADERS ── */
 [data-theme="dark"] .hero {
-  background: linear-gradient(140deg, #0F1D14 0%, #111A14 55%, #0E1C13 100%);
+  background: linear-gradient(140deg, #0A0A0A 0%, #111111 55%, #0A0A0A 100%);
 }
 [data-theme="dark"] .page-header {
-  background: linear-gradient(140deg, #0F1D14 0%, #111A14 55%, #0E1C13 100%);
+  background: linear-gradient(140deg, #0A0A0A 0%, #111111 55%, #0A0A0A 100%);
 }
 
 /* ── WHITE SECTIONS → DARK ── */
@@ -83,20 +87,20 @@
 [data-theme="dark"] .insurance-section,
 [data-theme="dark"] .txdrc-section,
 [data-theme="dark"] .participate-section {
-  background: #161F18;
+  background: #141414;
 }
 
 /* ── QUICK NAV (for-patients) ── */
 [data-theme="dark"] .quick-nav {
-  background: #161F18;
-  border-bottom-color: #253530;
+  background: #141414;
+  border-bottom-color: #2A2A2A;
 }
 [data-theme="dark"] .qn-icon {
-  background: #1A251E;
-  border-color: #253530;
+  background: #1A1A1A;
+  border-color: #2A2A2A;
 }
 [data-theme="dark"] .qn-card:hover {
-  background: #1E3228;
+  background: #111C15;
   border-color: var(--sage-dark);
 }
 
@@ -105,54 +109,54 @@
 [data-theme="dark"] .trial-card,
 [data-theme="dark"] .portal-card,
 [data-theme="dark"] .trials-cta-bar {
-  background: #1A251E;
+  background: #1A1A1A;
 }
 
-/* ── HARDCODED #EBF2EE ELEMENTS → DARK ── */
+/* ── LIGHT-GREEN ACCENT AREAS (#E8F5EE) → DARK FOREST TINT ── */
 [data-theme="dark"] .service-icon {
-  background: #1E3228;
+  background: #0F1D13;
 }
 [data-theme="dark"] .awards-box {
-  background: #1E3228;
+  background: #0F1D13;
 }
 [data-theme="dark"] .step-num {
-  background: #1E3228;
+  background: #0F1D13;
 }
 [data-theme="dark"] .insurance-note {
-  background: #1E3228;
+  background: #0F1D13;
 }
 [data-theme="dark"] .status-enrolling {
-  background: #1E3228;
+  background: #0F1D13;
 }
 [data-theme="dark"] .pstep-card {
-  background: #1A251E;
+  background: #1A1A1A;
 }
 
 /* ── COMPARE COLUMNS ── */
 [data-theme="dark"] .compare-col:first-child {
-  background: #1A251E;
-  border-right-color: #253530;
+  background: #1A1A1A;
+  border-right-color: #2A2A2A;
 }
 [data-theme="dark"] .compare-col:last-child {
-  background: #1E3228;
+  background: #0F1D13;
 }
 
 /* ── TXDRC FEATURE ICON ── */
 [data-theme="dark"] .txdrc-feature-icon {
-  background: #1A251E;
-  border-color: #253530;
+  background: #1A1A1A;
+  border-color: #2A2A2A;
 }
 
 /* ── BORDERS THAT ARE HARDCODED ── */
 [data-theme="dark"] .compare-row {
-  border-color: #253530;
+  border-color: #2A2A2A;
 }
 [data-theme="dark"] .modes-compare {
-  border-color: #253530;
+  border-color: #2A2A2A;
 }
 [data-theme="dark"] .hours-table tr {
-  border-bottom-color: #253530;
+  border-bottom-color: #2A2A2A;
 }
 [data-theme="dark"] .edu-list li {
-  border-bottom-color: #253530;
+  border-bottom-color: #2A2A2A;
 }
