@@ -1,0 +1,158 @@
+/* ── MERIDIEN DERM — DARK / LIGHT THEME ── */
+
+/* ── TOGGLE BUTTON ── */
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--sage-dark);
+  color: var(--sage-dark);
+  background: var(--card-bg);
+}
+.icon-sun  { display: none;  }
+.icon-moon { display: block; }
+[data-theme="dark"] .icon-sun  { display: block; }
+[data-theme="dark"] .icon-moon { display: none;  }
+
+/* ── DARK MODE CSS VARIABLES ── */
+/*
+   Strategy: flip --dark to a light color so all "color: var(--dark)" text
+   becomes light. Then explicitly re-darken the sections that use
+   "background: var(--dark)" as a dark panel (stats banner, CTA, callout).
+*/
+[data-theme="dark"] {
+  --cream:      #111A14;
+  --warm-white: #161F18;
+  --dark:       #D8E8E0;   /* flipped light — used for text */
+  --mid:        #8EB4A2;
+  --muted:      #6A9282;
+  --border:     #253530;
+  --card-bg:    #1A251E;
+  --hs-bg:      #0B1810;
+}
+
+/* ── RE-DARKEN PANELS THAT USE var(--dark) AS A BACKGROUND ── */
+[data-theme="dark"] .stats-banner,
+[data-theme="dark"] .cta-section {
+  background: #131F16;
+}
+[data-theme="dark"] .modes-callout {
+  background: #0B1810;
+}
+[data-theme="dark"] footer {
+  background: #060E08;
+}
+
+/* ── NAV & MENUS ── */
+[data-theme="dark"] nav {
+  background: rgba(17, 26, 20, 0.96);
+}
+[data-theme="dark"] .dropdown-menu {
+  background: #1A251E;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .dropdown-menu li a:hover {
+  background: #253530 !important;
+}
+[data-theme="dark"] .mobile-menu {
+  background: #111A14;
+}
+
+/* ── HERO & PAGE HEADERS ── */
+[data-theme="dark"] .hero {
+  background: linear-gradient(140deg, #0F1D14 0%, #111A14 55%, #0E1C13 100%);
+}
+[data-theme="dark"] .page-header {
+  background: linear-gradient(140deg, #0F1D14 0%, #111A14 55%, #0E1C13 100%);
+}
+
+/* ── WHITE SECTIONS → DARK ── */
+[data-theme="dark"] .about,
+[data-theme="dark"] .location,
+[data-theme="dark"] .modes-section,
+[data-theme="dark"] .insurance-section,
+[data-theme="dark"] .txdrc-section,
+[data-theme="dark"] .participate-section {
+  background: #161F18;
+}
+
+/* ── QUICK NAV (for-patients) ── */
+[data-theme="dark"] .quick-nav {
+  background: #161F18;
+  border-bottom-color: #253530;
+}
+[data-theme="dark"] .qn-icon {
+  background: #1A251E;
+  border-color: #253530;
+}
+[data-theme="dark"] .qn-card:hover {
+  background: #1E3228;
+  border-color: var(--sage-dark);
+}
+
+/* ── WHITE CARDS → DARK ── */
+[data-theme="dark"] .service-card:not(.accent-card),
+[data-theme="dark"] .trial-card,
+[data-theme="dark"] .portal-card,
+[data-theme="dark"] .trials-cta-bar {
+  background: #1A251E;
+}
+
+/* ── HARDCODED #EBF2EE ELEMENTS → DARK ── */
+[data-theme="dark"] .service-icon {
+  background: #1E3228;
+}
+[data-theme="dark"] .awards-box {
+  background: #1E3228;
+}
+[data-theme="dark"] .step-num {
+  background: #1E3228;
+}
+[data-theme="dark"] .insurance-note {
+  background: #1E3228;
+}
+[data-theme="dark"] .status-enrolling {
+  background: #1E3228;
+}
+[data-theme="dark"] .pstep-card {
+  background: #1A251E;
+}
+
+/* ── COMPARE COLUMNS ── */
+[data-theme="dark"] .compare-col:first-child {
+  background: #1A251E;
+  border-right-color: #253530;
+}
+[data-theme="dark"] .compare-col:last-child {
+  background: #1E3228;
+}
+
+/* ── TXDRC FEATURE ICON ── */
+[data-theme="dark"] .txdrc-feature-icon {
+  background: #1A251E;
+  border-color: #253530;
+}
+
+/* ── BORDERS THAT ARE HARDCODED ── */
+[data-theme="dark"] .compare-row {
+  border-color: #253530;
+}
+[data-theme="dark"] .modes-compare {
+  border-color: #253530;
+}
+[data-theme="dark"] .hours-table tr {
+  border-bottom-color: #253530;
+}
+[data-theme="dark"] .edu-list li {
+  border-bottom-color: #253530;
+}

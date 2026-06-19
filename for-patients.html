@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Patients | Meridien Dermatology</title>
   <meta name="description" content="Patient resources for Meridien Dermatology — insurance accepted, patient portal, bill pay, and information on HS and MODES." />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src https://images.squarespace-cdn.com; frame-src 'none'; script-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; object-src 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src https://images.squarespace-cdn.com; frame-src 'none'; script-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; object-src 'none';" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="theme.css" />
+  <script>(function(){var t=localStorage.getItem('meridien-theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -500,9 +502,13 @@
       </li>
       <li><a href="index.html#contact">Contact Us</a></li>
       <li><a href="index.html#media">Media</a></li>
-      <li><a href="clinical-trials.html">Clinical Trials</a></li>
+      <li><a href="https://www.txdrc.com/" target="_blank" rel="noopener noreferrer">Clinical Trials</a></li>
       <li><a href="tel:9722007446" class="nav-cta">(972) 200-7446</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg class="icon-sun" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -535,7 +541,7 @@
   <a href="for-patients.html"        class="active" onclick="closeMobileMenu()">For Patients</a>
   <a href="index.html#contact"       onclick="closeMobileMenu()">Contact Us</a>
   <a href="index.html#media"         onclick="closeMobileMenu()">Media</a>
-  <a href="clinical-trials.html"     onclick="closeMobileMenu()">Clinical Trials</a>
+  <a href="https://www.txdrc.com/" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()">Clinical Trials</a>
   <a href="tel:9722007446" style="color:var(--sage-dark); font-size:1.6rem;" onclick="closeMobileMenu()">(972) 200-7446</a>
 </div>
 
@@ -1000,7 +1006,7 @@
       <li><a href="for-patients.html">For Patients</a></li>
       <li><a href="index.html#contact">Contact Us</a></li>
       <li><a href="index.html#media">Media</a></li>
-      <li><a href="clinical-trials.html">Clinical Trials</a></li>
+      <li><a href="https://www.txdrc.com/" target="_blank" rel="noopener noreferrer">Clinical Trials</a></li>
       <li><a href="hidradenitis.html">HS &amp; MODES</a></li>
       <li><a href="https://meridienderm.ema.md" target="_blank" rel="noopener noreferrer">Patient Portal</a></li>
       <li><a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -1021,6 +1027,14 @@
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') mobileMenu.classList.remove('open');
+  });
+
+  // Dark / light mode toggle
+  document.getElementById('themeToggle').addEventListener('click', function() {
+    var root = document.documentElement;
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('meridien-theme', next);
   });
 </script>
 </body>
