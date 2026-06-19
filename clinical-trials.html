@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical Trials | Meridien Dermatology — TXDRC</title>
+  <meta name="description" content="Clinical research at Meridien Dermatology through the Texas Dermatology Research Center (TXDRC) — Dr. So Yeon Paek, Principal Investigator." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src https://images.squarespace-cdn.com; frame-src 'none'; script-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; object-src 'none';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:       #7A9E8E;
+      --sage-light: #A8C4B8;
+      --sage-dark:  #4E7A68;
+      --cream:      #FDFCF9;
+      --warm-white: #F8F6F1;
+      --dark:       #1E2823;
+      --mid:        #4A5C52;
+      --muted:      #7A8C82;
+      --border:     #E2EAE6;
+      --card-bg:    #F3F7F5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--dark);
+      background: var(--cream);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 252, 249, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo span { color: var(--sage-dark); }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); border-bottom: 1.5px solid var(--sage-dark); padding-bottom: 2px; }
+    .nav-links .nav-cta { background: var(--sage-dark); color: white !important; padding: 0.5rem 1.2rem; border-radius: 2rem; }
+    .nav-links .nav-cta:hover { background: var(--sage); }
+
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex !important; align-items: center; gap: 0.3rem; cursor: pointer; }
+    .nav-caret { font-size: 0.5rem; opacity: 0.55; line-height: 1; }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 0.4rem;
+      list-style: none;
+      min-width: 215px;
+      box-shadow: 0 12px 40px rgba(30,40,35,0.13);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.18s, visibility 0.18s, transform 0.18s;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu li { list-style: none; }
+    .dropdown-menu li a {
+      display: block !important;
+      padding: 0.6rem 1rem;
+      font-size: 0.76rem;
+      color: var(--mid) !important;
+      text-decoration: none;
+      border-radius: 0.65rem;
+      letter-spacing: 0.04em;
+      text-transform: none !important;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .dropdown-menu li a:hover { background: var(--card-bg) !important; color: var(--sage-dark) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.75rem;
+      padding: 4rem 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--dark); text-decoration: none; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--sage-dark); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.75rem; background: none; border: none; cursor: pointer; color: var(--mid); }
+
+    /* ── STATS BANNER ── */
+    .stats-banner { background: var(--dark); padding: 0.85rem 2rem; }
+    .stats-banner-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner-stat { display: flex; align-items: center; gap: 0.75rem; padding: 0 2.75rem; }
+    .banner-stat:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.12); }
+    .banner-num { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: white; line-height: 1; }
+    .banner-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(140deg, #EBF2EE 0%, #F8F6F1 55%, #EDF4F0 100%);
+      padding: 4.5rem 2rem;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    .page-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--sage-dark); }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .page-header p { font-size: 1rem; color: var(--mid); max-width: 580px; line-height: 1.8; }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-dark); font-weight: 400; margin-bottom: 0.85rem; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 1.25rem; }
+    h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--dark); margin-bottom: 0.5rem; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.22s;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--sage-dark); color: white; }
+    .btn-primary:hover { background: var(--sage); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(78,122,104,0.28); }
+    .btn-outline { border: 1.5px solid var(--sage-dark); color: var(--sage-dark); background: transparent; }
+    .btn-outline:hover { background: var(--sage-dark); color: white; }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.5); color: white; background: transparent; }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+
+    /* ── TXDRC INTRO ── */
+    .txdrc-section { background: white; }
+    .txdrc-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: start; }
+    .txdrc-lead { font-size: 1rem; color: var(--mid); line-height: 1.85; margin-bottom: 1.75rem; }
+    .txdrc-features { display: flex; flex-direction: column; gap: 0.875rem; margin-top: 0.5rem; }
+    .txdrc-feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.25rem;
+      background: var(--card-bg);
+      border-radius: 0.875rem;
+      border: 1px solid var(--border);
+    }
+    .txdrc-feature-icon {
+      width: 34px; height: 34px;
+      background: white;
+      border-radius: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage-dark);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .txdrc-feature h4 { font-size: 0.83rem; color: var(--dark); font-weight: 500; margin-bottom: 0.15rem; }
+    .txdrc-feature p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    .pi-card {
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: sticky;
+      top: 90px;
+    }
+    .pi-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 1rem; font-weight: 400; }
+    .pi-card h3 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+    .pi-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .pi-facts { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem; }
+    .pi-fact { display: flex; gap: 0.5rem; align-items: center; font-size: 0.82rem; color: var(--mid); }
+    .pi-fact-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+
+    /* ── TRIALS LIST ── */
+    .trials-section { background: var(--warm-white); }
+    .trials-intro { font-size: 0.95rem; color: var(--mid); max-width: 640px; line-height: 1.8; margin-bottom: 3rem; }
+    .trials-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+    .trial-card {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 1.75rem 2rem;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .trial-card:hover { border-color: var(--sage-dark); box-shadow: 0 4px 24px rgba(78,122,104,0.1); }
+    .trial-tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-dark); font-weight: 400; margin-bottom: 0.5rem; }
+    .trial-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .trial-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.75; }
+    .trial-meta { display: flex; gap: 0.5rem; margin-top: 0.875rem; flex-wrap: wrap; }
+    .trial-chip {
+      padding: 0.25rem 0.75rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .trial-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.875rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+    .status-enrolling { background: #EBF2EE; color: var(--sage-dark); }
+    .status-enrolling::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); }
+
+    /* ── HOW TO PARTICIPATE ── */
+    .participate-section { background: white; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 0.5rem; }
+    .pstep-card {
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    .pstep-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--sage);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pstep-card h4 { font-size: 1rem; font-weight: 400; color: var(--dark); margin-bottom: 0.5rem; }
+    .pstep-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; }
+
+    /* ── CTA SECTION ── */
+    .cta-section { background: var(--dark); padding: 5rem 2rem; }
+    .cta-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .cta-inner h2 { color: white; margin-bottom: 0.75rem; }
+    .cta-inner p { color: rgba(255,255,255,0.55); font-size: 0.95rem; }
+    .cta-inner .section-tag { color: var(--sage-light); }
+    .contact-cards { display: flex; flex-direction: column; gap: 0.875rem; }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.875rem;
+      text-decoration: none;
+      color: white;
+      transition: all 0.2s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); }
+    .contact-card-icon {
+      width: 40px; height: 40px;
+      border-radius: 0.75rem;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage-light);
+      flex-shrink: 0;
+    }
+    .cc-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 0.1rem; }
+    .cc-value { font-size: 0.9rem; color: rgba(255,255,255,0.82); }
+
+    /* ── FOOTER ── */
+    footer { background: #111A16; padding: 2.25rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
+    footer .logo { color: rgba(255,255,255,0.65); font-size: 1.1rem; }
+    footer .logo span { color: var(--sage-light); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .txdrc-grid, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .pi-card { position: static; }
+      .trial-card { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.5rem; }
+      .cta-section { padding: 4rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .stats-banner-inner { flex-wrap: wrap; justify-content: center; }
+      .banner-stat { padding: 0.5rem 1.5rem; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; }
+      .banner-stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Meridien <span>Derm</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li class="nav-dropdown">
+        <a href="for-patients.html">For Patients <span class="nav-caret">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="for-patients.html#insurance">Insurance Accepted</a></li>
+          <li><a href="for-patients.html#portal">Patient Portal</a></li>
+          <li><a href="for-patients.html#bill">Pay Your Bill</a></li>
+          <li><a href="for-patients.html#hs">Hidradenitis Suppurativa</a></li>
+          <li><a href="for-patients.html#modes">MODES</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+      <li><a href="index.html#media">Media</a></li>
+      <li><a href="clinical-trials.html" class="active">Clinical Trials</a></li>
+      <li><a href="tel:9722007446" class="nav-cta">(972) 200-7446</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="index.html#about"         onclick="closeMobileMenu()">About Us</a>
+  <a href="index.html#services"      onclick="closeMobileMenu()">Services</a>
+  <a href="for-patients.html"        onclick="closeMobileMenu()">For Patients</a>
+  <a href="index.html#contact"       onclick="closeMobileMenu()">Contact Us</a>
+  <a href="index.html#media"         onclick="closeMobileMenu()">Media</a>
+  <a href="clinical-trials.html"     class="active" onclick="closeMobileMenu()">Clinical Trials</a>
+  <a href="tel:9722007446" style="color:var(--sage-dark); font-size:1.6rem;" onclick="closeMobileMenu()">(972) 200-7446</a>
+</div>
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="stats-banner-inner">
+    <div class="banner-stat"><span class="banner-num">14+</span><span class="banner-label">Years of Experience</span></div>
+    <div class="banner-stat"><span class="banner-num">FAAD</span><span class="banner-label">Board Certified</span></div>
+    <div class="banner-stat"><span class="banner-num">Yale</span><span class="banner-label">University</span></div>
+    <div class="banner-stat"><span class="banner-num">UTSW</span><span class="banner-label">Medical School</span></div>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Research</div>
+    <h1>Clinical Trials</h1>
+    <p>Meridien Dermatology conducts clinical research through the Texas Dermatology Research Center (TXDRC), giving patients access to the latest investigational therapies under expert supervision.</p>
+  </div>
+</div>
+
+<!-- TXDRC INTRO -->
+<section class="txdrc-section" id="txdrc">
+  <div class="section-inner">
+    <div class="txdrc-grid">
+
+      <div>
+        <div class="section-tag">About the Program</div>
+        <h2>Texas Dermatology Research Center</h2>
+        <p class="txdrc-lead">
+          The Texas Dermatology Research Center (TXDRC) is an academic research program affiliated with Meridien Dermatology. Under the direction of Dr. So Yeon Paek as Principal Investigator, TXDRC conducts Phase II–IV clinical trials investigating new and emerging therapies for inflammatory skin diseases, including hidradenitis suppurativa, psoriasis, atopic dermatitis, and other dermatological conditions.
+        </p>
+        <p class="txdrc-lead">
+          Participation in a clinical trial may give patients access to cutting-edge treatments not yet commercially available — often at no cost. All trials are reviewed and approved by an independent Institutional Review Board (IRB) to ensure patient safety.
+        </p>
+
+        <div class="txdrc-features">
+          <div class="txdrc-feature">
+            <div class="txdrc-feature-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>IRB-Approved Protocols</h4>
+              <p>Every study is independently reviewed to protect patient rights and safety.</p>
+            </div>
+          </div>
+          <div class="txdrc-feature">
+            <div class="txdrc-feature-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>At No Cost to Participants</h4>
+              <p>Study-related treatments, labs, and visits are provided free of charge during enrollment.</p>
+            </div>
+          </div>
+          <div class="txdrc-feature">
+            <div class="txdrc-feature-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Expert Principal Investigator</h4>
+              <p>Dr. Paek's research background at NIH and UT Southwestern informs every protocol she leads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="pi-card">
+          <div class="pi-label">Principal Investigator</div>
+          <h3>Dr. So Yeon Paek, MD</h3>
+          <div class="pi-sub">FAAD · Board Certified Dermatologist</div>
+          <div class="pi-facts">
+            <div class="pi-fact"><span class="pi-fact-dot"></span>Yale University — B.S. Molecular Biophysics &amp; Biochemistry</div>
+            <div class="pi-fact"><span class="pi-fact-dot"></span>UT Southwestern Medical School — M.D.</div>
+            <div class="pi-fact"><span class="pi-fact-dot"></span>National Institutes of Health — Clinical Research Fellowship</div>
+            <div class="pi-fact"><span class="pi-fact-dot"></span>Women's Dermatologic Society Academic Research Award</div>
+            <div class="pi-fact"><span class="pi-fact-dot"></span>Michael S. Benninger Award — Excellence in Medicine, Research &amp; Education</div>
+          </div>
+          <a href="tel:9722007446" class="btn btn-outline" style="width:100%; justify-content:center;">Call to Inquire</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE TRIALS -->
+<section class="trials-section" id="trials">
+  <div class="section-inner">
+    <div class="section-tag">Currently Enrolling</div>
+    <h2>Active Clinical Studies</h2>
+    <p class="trials-intro">
+      The following studies are currently open to eligible participants. Call our office at (972) 200-7446 or send a message through the patient portal to find out if you may qualify.
+    </p>
+
+    <div class="trials-grid">
+
+      <div class="trial-card">
+        <div>
+          <div class="trial-tag">Hidradenitis Suppurativa</div>
+          <h3>Phase III Biologic Therapy — HS</h3>
+          <p class="trial-desc">
+            Investigating the efficacy and safety of a novel biologic agent targeting IL-17 in patients with moderate-to-severe hidradenitis suppurativa. Patients with Hurley Stage II or III who have had an inadequate response to systemic antibiotics may be eligible.
+          </p>
+          <div class="trial-meta">
+            <span class="trial-chip">Ages 18–65</span>
+            <span class="trial-chip">Stage II–III HS</span>
+            <span class="trial-chip">Phase III</span>
+          </div>
+        </div>
+        <div><span class="trial-status status-enrolling">Enrolling</span></div>
+      </div>
+
+      <div class="trial-card">
+        <div>
+          <div class="trial-tag">Psoriasis</div>
+          <h3>Plaque Psoriasis — Novel Oral Agent</h3>
+          <p class="trial-desc">
+            A randomized, double-blind study evaluating a next-generation oral small-molecule therapy for moderate-to-severe plaque psoriasis. Participants must have at least 10% body surface area involvement or significant disease affecting quality of life.
+          </p>
+          <div class="trial-meta">
+            <span class="trial-chip">Ages 18+</span>
+            <span class="trial-chip">Moderate–Severe</span>
+            <span class="trial-chip">Phase III</span>
+          </div>
+        </div>
+        <div><span class="trial-status status-enrolling">Enrolling</span></div>
+      </div>
+
+      <div class="trial-card">
+        <div>
+          <div class="trial-tag">Atopic Dermatitis</div>
+          <h3>Adult Atopic Dermatitis — Topical Study</h3>
+          <p class="trial-desc">
+            Evaluating a next-generation non-steroidal topical treatment in adults with moderate atopic dermatitis. Patients who have had an inadequate response to over-the-counter therapies and prescription corticosteroids may qualify.
+          </p>
+          <div class="trial-meta">
+            <span class="trial-chip">Ages 18+</span>
+            <span class="trial-chip">Moderate AD</span>
+            <span class="trial-chip">Phase II/III</span>
+          </div>
+        </div>
+        <div><span class="trial-status status-enrolling">Enrolling</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO PARTICIPATE -->
+<section class="participate-section" id="participate">
+  <div class="section-inner">
+    <div class="section-tag">Getting Started</div>
+    <h2>How to Participate</h2>
+    <div class="steps-grid">
+      <div class="pstep-card">
+        <div class="pstep-num">1</div>
+        <h4>Contact Our Office</h4>
+        <p>Call (972) 200-7446 or message through the patient portal to express your interest in clinical research. A coordinator will reach out to discuss open studies.</p>
+      </div>
+      <div class="pstep-card">
+        <div class="pstep-num">2</div>
+        <h4>Screening Visit</h4>
+        <p>You will come in for a free screening evaluation to determine if you meet the eligibility criteria for an open study. This visit has no cost to you.</p>
+      </div>
+      <div class="pstep-card">
+        <div class="pstep-num">3</div>
+        <h4>Informed Consent &amp; Enrollment</h4>
+        <p>If eligible and you choose to enroll, you will review and sign an informed consent form. All study-related visits, labs, and medications are provided at no charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="section-tag">Interested?</div>
+      <h2>Ask about clinical trials at your next visit</h2>
+      <p>Our research coordinator is happy to discuss whether a current study might be right for you. Participation is always voluntary and you may withdraw at any time.</p>
+    </div>
+    <div class="contact-cards">
+      <a href="tel:9722007446" class="contact-card">
+        <div class="contact-card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.82 12 19.79 19.79 0 01.77 3.38 2 2 0 012.76 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.74a16 16 0 006.35 6.35l1.1-1.1a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cc-label">Phone</div>
+          <div class="cc-value">(972) 200-7446</div>
+        </div>
+      </a>
+      <a href="https://meridienderm.ema.md" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <div class="contact-card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cc-label">Patient Portal</div>
+          <div class="cc-value">Send a Message</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="logo">Meridien <span>Derm</span></a>
+    <ul class="footer-links">
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="for-patients.html">For Patients</a></li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+      <li><a href="index.html#media">Media</a></li>
+      <li><a href="clinical-trials.html">Clinical Trials</a></li>
+      <li><a href="hidradenitis.html">HS &amp; MODES</a></li>
+      <li><a href="https://meridienderm.ema.md" target="_blank" rel="noopener noreferrer">Patient Portal</a></li>
+      <li><a href="https://www.instagram.com/meridien.derm/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2025 Meridien Dermatology &nbsp;·&nbsp; Dallas, TX</span>
+  </div>
+</footer>
+
+<script>
+  const hamburger   = document.getElementById('hamburger');
+  const mobileMenu  = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click',   () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+</script>
+
+</body>
+</html>
