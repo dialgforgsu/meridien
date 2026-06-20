@@ -198,6 +198,14 @@
       'transition:background 0.15s;',
     '}',
     '.mc-send:hover{background:#2D8655;}',
+    '.mc-home-btn{',
+      'align-self:center;background:none;cursor:pointer;',
+      'border:1px solid #D5CDBE;border-radius:2rem;',
+      'padding:0.22rem 0.8rem;font-size:0.71rem;color:#888;',
+      "font-family:'Inter',sans-serif;",
+      'transition:border-color 0.15s,color 0.15s;margin-top:0.05rem;',
+    '}',
+    '.mc-home-btn:hover{border-color:#1A5C38;color:#1A5C38;}',
     '@media(max-width:420px){',
       '#mc-panel{width:calc(100vw - 16px);right:8px;bottom:82px;}',
       '#mc-toggle{right:16px;bottom:16px;}',
@@ -263,7 +271,7 @@
         hideQuickReplies();
         addMsg(qr.query, 'user');
         var reply = getResponse(qr.query);
-        setTimeout(function () { addMsg(reply || FALLBACK, 'bot'); }, 300);
+        setTimeout(function () { addMsg(reply || FALLBACK, 'bot'); addHomeBtn(); }, 300);
       });
       quickWrap.appendChild(chip);
     });
@@ -337,6 +345,22 @@
     if (wrap) wrap.style.display = 'none';
   }
 
+  function showQuickReplies() {
+    var wrap = document.getElementById('mc-quick-wrap');
+    if (wrap) { wrap.style.display = ''; }
+    var msgs = document.getElementById('mc-messages');
+    if (msgs) msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addHomeBtn() {
+    var msgs = document.getElementById('mc-messages');
+    if (!msgs) return;
+    var btn = el('button', { class: 'mc-home-btn', type: 'button' }, '&#8592;&nbsp;Back to menu');
+    btn.addEventListener('click', showQuickReplies);
+    msgs.appendChild(btn);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
   function sendMessage() {
     var input = document.getElementById('mc-input');
     if (!input) return;
@@ -346,7 +370,7 @@
     hideQuickReplies();
     addMsg(text, 'user');
     var reply = getResponse(text);
-    setTimeout(function () { addMsg(reply || FALLBACK, 'bot'); }, 300);
+    setTimeout(function () { addMsg(reply || FALLBACK, 'bot'); addHomeBtn(); }, 300);
   }
 
   if (document.readyState === 'loading') {

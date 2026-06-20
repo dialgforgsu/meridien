@@ -44,7 +44,7 @@
   --warm-white: #141414;
   --dark:       #F5EFE6;   /* flipped beige — used for text */
   --mid:        #AAAAAA;
-  --muted:      #777777;
+  --muted:      #999999;   /* lightened from #777 for dark bg readability */
   --border:     #2A2A2A;
   --card-bg:    #1A1A1A;
   --hs-bg:      #050D07;
@@ -194,4 +194,21 @@
 }
 [data-theme="dark"] .edu-list li {
   border-bottom-color: #2A2A2A;
+}
+
+/* ── ACCENT TEXT ON DARK BACKGROUNDS ── */
+/* These elements use var(--sage-dark) which becomes #2D8655 — too dark against
+   near-black backgrounds. Switch to --sage-light (#7FCC9A) for AA contrast. */
+[data-theme="dark"] .section-tag,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .info-label,
+[data-theme="dark"] .hero-eyebrow,
+[data-theme="dark"] .def-n {
+  color: var(--sage-light);
+}
+[data-theme="dark"] .hero-eyebrow::before {
+  background: var(--sage-light);
+}
+[data-theme="dark"] h1 em {
+  color: var(--sage-light);
 }
