@@ -42,7 +42,7 @@
   --sage-dark:  #2D8655;   /* forest primary on dark */
   --cream:      #0A0A0A;
   --warm-white: #141414;
-  --dark:       #F0F0F0;   /* flipped light — used for text */
+  --dark:       #F5EFE6;   /* flipped beige — used for text */
   --mid:        #AAAAAA;
   --muted:      #777777;
   --border:     #2A2A2A;
@@ -53,7 +53,7 @@
 /* ── DARK MODE BODY SAFETY NET ── */
 /* Explicit values ensure readability even if variable resolution fails */
 [data-theme="dark"] body {
-  color: #F0F0F0;
+  color: #F5EFE6;
   background: #0A0A0A;
 }
 
