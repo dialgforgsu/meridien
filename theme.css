@@ -149,6 +149,12 @@
 [data-theme="dark"] .trials-cta-bar {
   background: #1A1A1A;
 }
+[data-theme="dark"] .service-card:not(.accent-card) h3 {
+  color: #F5EFE6;
+}
+[data-theme="dark"] .service-card:not(.accent-card) p {
+  color: #CCCCCC;
+}
 
 /* ── LIGHT-GREEN ACCENT AREAS (#E8F5EE) → DARK FOREST TINT ── */
 [data-theme="dark"] .service-icon {
