@@ -120,7 +120,6 @@
 [data-theme="dark"] .location,
 [data-theme="dark"] .services,
 [data-theme="dark"] .trials-section,
-[data-theme="dark"] .portal-section,
 [data-theme="dark"] .modes-section,
 [data-theme="dark"] .insurance-section,
 [data-theme="dark"] .txdrc-section,
@@ -145,7 +144,6 @@
 /* ── WHITE CARDS → DARK ── */
 [data-theme="dark"] .service-card:not(.accent-card),
 [data-theme="dark"] .trial-card,
-[data-theme="dark"] .portal-card,
 [data-theme="dark"] .trials-cta-bar {
   background: #1A1A1A;
 }
@@ -209,13 +207,14 @@
 /* These elements use var(--sage-dark) which becomes #2D8655 — too dark against
    near-black backgrounds. Switch to --sage-light (#7FCC9A) for AA contrast. */
 [data-theme="dark"] .section-tag,
-[data-theme="dark"] .card-title,
 [data-theme="dark"] .info-label,
 [data-theme="dark"] .hero-eyebrow,
+[data-theme="dark"] .page-eyebrow,
 [data-theme="dark"] .def-n {
   color: var(--sage-light);
 }
-[data-theme="dark"] .hero-eyebrow::before {
+[data-theme="dark"] .hero-eyebrow::before,
+[data-theme="dark"] .page-eyebrow::before {
   background: var(--sage-light);
 }
 [data-theme="dark"] h1 em {
@@ -236,33 +235,35 @@
 }
 
 /* ── ABOUT — ABOUT THE PRACTICE ── */
+/* Doctor bio card (.about-card) and media strip stay same as light mode — no overrides. */
 [data-theme="dark"] .about-text p,
 [data-theme="dark"] .credential,
-[data-theme="dark"] .card-desc,
 [data-theme="dark"] .awards-box p {
   color: #CCCCCC;
 }
-[data-theme="dark"] .about-card h3,
-[data-theme="dark"] .edu-school,
-[data-theme="dark"] .media-title {
-  color: #F5EFE6;
-}
-[data-theme="dark"] .edu-degree,
-[data-theme="dark"] .media-date {
-  color: #999999;
-}
-[data-theme="dark"] .credential svg,
-[data-theme="dark"] .media-source,
-[data-theme="dark"] .media-strip-label {
+[data-theme="dark"] .credential svg {
   color: #7FCC9A;
 }
 
 /* ── LOCATION — FIND US ── */
+/* Insurance chips stay same as light mode — no override. */
 [data-theme="dark"] .info-block p,
-[data-theme="dark"] .hours-table td,
-[data-theme="dark"] .ins-chip {
+[data-theme="dark"] .hours-table td {
   color: #CCCCCC;
 }
 [data-theme="dark"] .hours-table td:last-child {
+  color: #F5EFE6;
+}
+
+/* ── FOR PATIENTS PAGE HEADER ── */
+[data-theme="dark"] .page-header h1 {
+  color: #F5EFE6;
+}
+[data-theme="dark"] .page-header p {
+  color: #CCCCCC;
+}
+
+/* ── HERO — "SAME DAY AVAILABLE" SUBTEXT ── */
+[data-theme="dark"] .btn-sub {
   color: #F5EFE6;
 }
