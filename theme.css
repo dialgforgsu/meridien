@@ -57,6 +57,29 @@
   background: #0A0A0A;
 }
 
+/* ── EXPLICIT TEXT COLOR OVERRIDES ── */
+/* Belt-and-suspenders: any element with its own color: var(--dark) or
+   var(--mid) rule must be explicitly forced here so dark mode text is
+   always readable. Dark-panel overrides (white text) live in inline
+   styles with equal specificity but later source order, so they still win. */
+[data-theme="dark"] .logo,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] .def-word,
+[data-theme="dark"] .mobile-menu a,
+[data-theme="dark"] .mobile-close {
+  color: #F5EFE6;
+}
+[data-theme="dark"] .hamburger span {
+  background: #F5EFE6;
+}
+[data-theme="dark"] .nav-links a:not(.nav-cta),
+[data-theme="dark"] .theme-toggle {
+  color: #AAAAAA;
+}
+
 /* ── RE-DARKEN PANELS THAT USE var(--dark) AS A BACKGROUND ── */
 [data-theme="dark"] .stats-banner,
 [data-theme="dark"] .cta-section {
