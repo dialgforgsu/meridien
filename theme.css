@@ -118,6 +118,9 @@
 /* ── WHITE SECTIONS → DARK ── */
 [data-theme="dark"] .about,
 [data-theme="dark"] .location,
+[data-theme="dark"] .services,
+[data-theme="dark"] .trials-section,
+[data-theme="dark"] .portal-section,
 [data-theme="dark"] .modes-section,
 [data-theme="dark"] .insurance-section,
 [data-theme="dark"] .txdrc-section,
