@@ -221,3 +221,48 @@
 [data-theme="dark"] h1 em {
   color: var(--sage-light);
 }
+
+/* ── NAV DROPDOWN ── */
+/* Uses !important in the base rule, so the override must too;
+   higher specificity here (0,2,1) beats the base (0,1,1). */
+[data-theme="dark"] .dropdown-menu li a {
+  color: #E0D8CC !important;
+}
+
+/* ── HERO — CENTER FOR HEALING ── */
+[data-theme="dark"] .def-entry,
+[data-theme="dark"] .hero-sub {
+  color: #CCCCCC;
+}
+
+/* ── ABOUT — ABOUT THE PRACTICE ── */
+[data-theme="dark"] .about-text p,
+[data-theme="dark"] .credential,
+[data-theme="dark"] .card-desc,
+[data-theme="dark"] .awards-box p {
+  color: #CCCCCC;
+}
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .edu-school,
+[data-theme="dark"] .media-title {
+  color: #F5EFE6;
+}
+[data-theme="dark"] .edu-degree,
+[data-theme="dark"] .media-date {
+  color: #999999;
+}
+[data-theme="dark"] .credential svg,
+[data-theme="dark"] .media-source,
+[data-theme="dark"] .media-strip-label {
+  color: #7FCC9A;
+}
+
+/* ── LOCATION — FIND US ── */
+[data-theme="dark"] .info-block p,
+[data-theme="dark"] .hours-table td,
+[data-theme="dark"] .ins-chip {
+  color: #CCCCCC;
+}
+[data-theme="dark"] .hours-table td:last-child {
+  color: #F5EFE6;
+}
